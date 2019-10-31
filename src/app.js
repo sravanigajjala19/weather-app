@@ -6,6 +6,7 @@ const geocode = require('./utils/geocode')
 const forecast = require('./utils/forecast')
 const viewPath=path.join(__dirname,'../templates/views');
 const viewPartialPath=path.join(__dirname,'../templates/partials');
+const port=process.env.PORT || 3000;
 hbs.registerPartials(viewPartialPath);
 app.use(express.static(path.join(__dirname,'../public')));
 app.set('view engine','hbs');
@@ -61,6 +62,6 @@ app.get('*',(req,res)=>{
         errorMessage:'Page Not Found'
     })
 })
-app.listen(3008,(err,s)=>{
+app.listen(port,(err,s)=>{
     console.log('listening')
 })
